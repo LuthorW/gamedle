@@ -137,6 +137,8 @@ const personagensDb = [
 let personagemDoDia = personagensDb[Math.floor(Math.random() * personagensDb.length)];
 console.log("🤫 Spoiler! A resposta de hoje é:", personagemDoDia.nome);
 
+let palpitesFeitos = [];
+
 // Referências aos elementos HTML
 const input = document.getElementById("guessInput");
 const autocompleteList = document.getElementById("custom-autocomplete");
@@ -154,8 +156,11 @@ input.addEventListener("input", function() {
         return;
     }
 
-    // Filtra os personagens que combinam com o que foi digitado
-    const resultados = personagensDb.filter(p => p.nome.toLowerCase().includes(valorDigitado));
+    // ATUALIZE ESTA LINHA: Filtra os personagens que combinam E que ainda não foram jogados
+    const resultados = personagensDb.filter(p => 
+        p.nome.toLowerCase().includes(valorDigitado) && 
+        !palpitesFeitos.includes(p.nome)
+    );
     
     if (resultados.length > 0) {
         autocompleteList.style.display = "block";
@@ -164,11 +169,10 @@ input.addEventListener("input", function() {
             item.className = "autocomplete-item";
             item.innerText = match.nome;
             
-            // Se clicar na opção, autocompleta e envia
             item.addEventListener("click", function() {
                 input.value = match.nome;
                 autocompleteList.style.display = "none";
-                fazerPalpite(); // Envia direto!
+                fazerPalpite(); 
             });
             
             autocompleteList.appendChild(item);
@@ -181,21 +185,22 @@ input.addEventListener("input", function() {
 // 2. SISTEMA DE "ENTER" PARA AUTO-COMPLETAR E ENVIAR
 input.addEventListener("keydown", function(e) {
     if (e.key === "Enter") {
-        e.preventDefault(); // Evita recarregar a página
+        e.preventDefault(); 
         const valorDigitado = this.value.toLowerCase().trim();
         
         if (valorDigitado === "") return;
 
-        // Procura se tem um exato primeiro, se não, pega o primeiro que contiver a letra
-        const exato = personagensDb.find(p => p.nome.toLowerCase() === valorDigitado);
-        const parcial = personagensDb.find(p => p.nome.toLowerCase().includes(valorDigitado));
+        // ATUALIZE ESTAS LINHAS: Filtra apenas os personagens disponíveis
+        const disponiveis = personagensDb.filter(p => !palpitesFeitos.includes(p.nome));
+        const exato = disponiveis.find(p => p.nome.toLowerCase() === valorDigitado);
+        const parcial = disponiveis.find(p => p.nome.toLowerCase().includes(valorDigitado));
 
         const personagemEscolhido = exato || parcial;
 
         if (personagemEscolhido) {
-            input.value = personagemEscolhido.nome; // Preenche o input com o nome certinho (ex: Mal)
-            autocompleteList.style.display = "none"; // Esconde a lista
-            fazerPalpite(); // Executa a adivinhação
+            input.value = personagemEscolhido.nome; 
+            autocompleteList.style.display = "none"; 
+            fazerPalpite(); 
         }
     }
 });
@@ -216,6 +221,8 @@ function fazerPalpite() {
         alert("Personagem não encontrado na lista!");
         return;
     }
+
+    palpitesFeitos.push(palpiteObj.nome);
 
     const tr = document.createElement("tr");
     tr.className = "new-row"; // Para a animação de flip
