@@ -256,13 +256,27 @@ function fazerPalpite() {
     if (palpiteObj.nome === personagemDoDia.nome) {
         winMessage.style.display = "flex";
         winName.innerText = palpiteObj.nome;
-        
-        // Toca o áudio de vitória (Opcional, certifique-se de que o id winAudio existe no HTML)
-        const audio = document.getElementById("winAudio");
-        if(audio) audio.play();
-        
-        input.disabled = true; // Trava o input após ganhar
+        tocarAudiosVitoria();
+        input.disabled = true; 
     }
+}
+
+function tocarAudiosVitoria() {
+    const a1 = document.getElementById('winAudio');
+    const a2 = document.getElementById('winAudio2');
+    const a3 = document.getElementById('winAudio3');
+
+    if(a1) { a1.currentTime = 0; a1.play(); }
+    if(a2) { 
+        a2.volume = 0.2; 
+        a2.currentTime = 0; a2.play(); 
+    }
+    if(a3) { a3.volume = 0.3; a3.currentTime = 0; a3.play(); }
+}
+
+function tocarEasterEgg() {
+    const audio = document.getElementById('easterEggAudio');
+    if(audio) { audio.currentTime = 0; audio.play(); }
 }
 
 // Função auxiliar para criar as células coloridas
