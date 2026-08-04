@@ -321,12 +321,33 @@ td:first-child {
 
 /* Rodapé */
 footer {
-    position: fixed; bottom: 0; left: 0; right: 0; width: 100%;
-    background-color: rgba(255, 255, 255, 0.85); 
-    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); 
-    color: #999; display: flex; justify-content: center; align-items: center;
-    padding: 15px 0; border-top: 1px solid var(--border-color); 
-    font-size: 14px; z-index: 100; box-sizing: border-box; 
+    position: fixed; 
+    bottom: 0; 
+    left: 0; 
+    right: 0; 
+    width: 100%;
+    background-color: rgba(13, 9, 20, 0.9); /* Roxo super escuro translúcido */
+    backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px); 
+    color: #888; /* Texto cinza claro para não ofuscar */
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    padding: 15px 0; 
+    border-top: 1px solid rgba(138, 43, 226, 0.2); /* Linha roxa sutil no topo */
+    font-size: 14px; 
+    z-index: 100; 
+    box-sizing: border-box; 
 }
-footer a { color: var(--primary-color); text-decoration: none; font-weight: 600; transition: color 0.2s; margin-left: 4px; }
-footer a:hover { color: var(--primary-hover); }
+
+footer a { 
+    color: var(--primary-color); 
+    text-decoration: none; 
+    font-weight: 600; 
+    transition: color 0.2s; 
+    margin-left: 4px; 
+}
+
+footer a:hover { 
+    color: var(--primary-hover); 
+}
