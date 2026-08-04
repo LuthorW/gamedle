@@ -1,0 +1,332 @@
+:root {
+    /* Tema Roxo / Dark Magic */
+    --bg-color: #0d0914; /* Fundo super escuro, quase preto com toque de roxo */
+    --panel-bg: #1a1325; /* Roxo escuro para as caixas */
+    --text-color: #f0f0f0; 
+    --correct: #2e7d32; 
+    --incorrect: #b71c1c; 
+    --partial: #f57f17; 
+    --border-color: #382554;
+    --primary-color: #8a2be2; /* Roxo vibrante (BlueViolet) */
+    --primary-hover: #9b4dff; /* Roxo mais claro pro hover */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 20px 80px 20px;
+    margin: 0;
+    position: relative;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* botões de jogo */
+.mode-controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    z-index: 10;
+}
+
+.mode-btn {
+    background-color: var(--panel-bg);
+    color: #999;
+    border: 2px solid var(--border-color);
+    padding: 10px 20px;
+    border-radius: 20px; /* Bordas mais arredondadas para um visual fofo */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mode-btn:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-hover);
+}
+
+.mode-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-hover);
+    box-shadow: 0 0 15px rgba(209, 71, 163, 0.4);
+}
+
+/* Ocultar as seções inativas */
+.mode-section {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mode-section.active {
+    display: flex;
+}
+
+/* Easter Egg */
+#easterEggBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0.25;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    padding: 5px;
+}
+
+#easterEggBtn:hover {
+    opacity: 1;
+    transform: scale(1.2) rotate(10deg);
+}
+
+/* Título com Fonte Mágica */
+h1 {
+    font-family: 'Pacifico', cursive; /* Fonte nova para o título */
+    color: var(--primary-color);
+    margin-bottom: 0px;
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 400;
+    text-shadow: 0 0 15px rgba(209, 71, 163, 0.3);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+    cursor: default; 
+}
+
+h1:hover {
+    transform: scale(1.05) translateY(-3px);
+    color: #e56cc0; 
+    text-shadow: 0 0 25px rgba(209, 71, 163, 0.6), 0 0 10px rgba(255, 255, 255, 0.8); 
+}
+
+p.subtitle {
+    color: #888;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.game-controls {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 600px;
+}
+
+input {
+    flex: 1;
+    padding: 14px 20px;
+    background-color: var(--panel-bg);
+    border: 2px solid var(--border-color);
+    color: var(--text-color); /* Mudado para texto escuro */
+    border-radius: 12px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    outline: none;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(209, 71, 163, 0.2), inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+button {
+    padding: 14px 28px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(209, 71, 163, 0.2);
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(209, 71, 163, 0.3);
+}
+
+button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(209, 71, 163, 0.2);
+}
+
+/* Tabela e Caixas */
+.table-container {
+    width: 100%;
+    max-width: 1100px;
+    overflow-x: auto;
+    display: flex;
+    justify-content: center; 
+    padding-bottom: 20px;
+}
+
+.table-container::-webkit-scrollbar { height: 8px; }
+.table-container::-webkit-scrollbar-track { background: var(--bg-color); }
+.table-container::-webkit-scrollbar-thumb { background: #dcb3ce; border-radius: 4px; }
+
+table {
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+th {
+    padding: 5px;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #999;
+    width: 90px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+td {
+    width: 95px;  
+    height: 95px; 
+    padding: 8px;
+    text-align: center;
+    border-radius: 12px; /* Caixas um pouco mais redondas */
+    font-weight: 700;
+    font-size: 13px; 
+    line-height: 1.4; 
+    background-color: var(--panel-bg);
+    border: 2px solid var(--border-color);
+    vertical-align: middle;
+    box-sizing: border-box;
+    word-wrap: break-word; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Sombra mais suave */
+    color: white; /* Texto branco dentro das caixas coloridas */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* A primeira célula geralmente é a imagem ou nome limpo */
+td:first-child {
+    background: var(--panel-bg);
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
+    text-shadow: none;
+}
+
+.match { background-color: var(--correct); border-color: #6bc248; }
+.no-match { background-color: var(--incorrect); border-color: #e85371; }
+.partial { background-color: var(--partial); border-color: #e5c74b; }
+
+@keyframes flipReveal {
+    0% { transform: rotateX(90deg); opacity: 0; }
+    100% { transform: rotateX(0deg); opacity: 1; }
+}
+
+.new-row td {
+    opacity: 0;
+    animation: flipReveal 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Delays para as 8 colunas atuais */
+.new-row td:nth-child(1) { animation-delay: 0.1s; }
+.new-row td:nth-child(2) { animation-delay: 0.2s; }
+.new-row td:nth-child(3) { animation-delay: 0.3s; }
+.new-row td:nth-child(4) { animation-delay: 0.4s; }
+.new-row td:nth-child(5) { animation-delay: 0.5s; }
+.new-row td:nth-child(6) { animation-delay: 0.6s; }
+.new-row td:nth-child(7) { animation-delay: 0.7s; }
+.new-row td:nth-child(8) { animation-delay: 0.8s; }
+
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.win-message {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    animation: popIn 0.5s ease forwards;
+}
+
+.win-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--primary-color);
+    text-align: center;
+    text-shadow: 0 2px 10px rgba(209, 71, 163, 0.2);
+    margin: 0;
+}
+
+.win-name {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text-color);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Autocomplete list fofa */
+.input-wrapper { position: relative; flex: 1; }
+.input-wrapper input { width: 100%; box-sizing: border-box; }
+
+.autocomplete-list {
+    position: absolute; top: 100%; left: 0; right: 0;
+    background-color: var(--panel-bg);
+    border: 2px solid var(--border-color);
+    border-top: none; border-radius: 0 0 12px 12px;
+    max-height: 250px; overflow-y: auto; z-index: 10;
+    display: none; box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.autocomplete-list::-webkit-scrollbar { width: 8px; }
+.autocomplete-list::-webkit-scrollbar-track { background: #fdf4f7; border-radius: 0 0 12px 0; }
+.autocomplete-list::-webkit-scrollbar-thumb { background: #dcb3ce; border-radius: 4px; }
+
+.autocomplete-item {
+    display: flex; align-items: center; gap: 15px;
+    padding: 10px 20px; cursor: pointer;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color); font-size: 15px;
+    transition: background-color 0.2s;
+}
+
+.autocomplete-item:last-child { border-bottom: none; }
+.autocomplete-item:hover { background-color: var(--primary-color); color: white; }
+
+/* Setas para o Ano */
+.arrow-cell { padding: 0; overflow: hidden; background-color: transparent !important; border: none !important; box-shadow: none !important; }
+.graphic-arrow-container { display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; background-color: var(--incorrect); border-radius: 12px; position: relative; box-sizing: border-box; border: 2px solid #e85371; }
+.graphic-arrow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60%; height: 75%; background-color: rgba(255, 255, 255, 0.3); }
+.graphic-arrow.arrow-down { clip-path: polygon(30% 0%, 70% 0%, 70% 50%, 100% 50%, 50% 100%, 0% 50%, 30% 50%); }
+.graphic-arrow.arrow-up { clip-path: polygon(50% 0%, 100% 50%, 70% 50%, 70% 100%, 30% 100%, 30% 50%, 0% 50%); }
+.arrow-year { position: relative; z-index: 2; color: #ffffff; font-size: 17px; font-weight: 800; font-family: 'Poppins', sans-serif; text-shadow: 1px 1px 4px rgba(0,0,0,0.4); }
+
+/* Rodapé */
+footer {
+    position: fixed; bottom: 0; left: 0; right: 0; width: 100%;
+    background-color: rgba(255, 255, 255, 0.85); 
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); 
+    color: #999; display: flex; justify-content: center; align-items: center;
+    padding: 15px 0; border-top: 1px solid var(--border-color); 
+    font-size: 14px; z-index: 100; box-sizing: border-box; 
+}
+footer a { color: var(--primary-color); text-decoration: none; font-weight: 600; transition: color 0.2s; margin-left: 4px; }
+footer a:hover { color: var(--primary-hover); }

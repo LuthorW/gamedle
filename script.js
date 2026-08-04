@@ -132,3 +132,152 @@ const personagensDb = [
   { nome: "Dizzy", filme: "Descendentes", estudio: "Disney", cabelo: "Castanho", lancamento: 2017, magia: "Não", temPar: "Não", local: "Ilha dos Perdidos" },
   { nome: "Celia", filme: "Descendentes", estudio: "Disney", cabelo: "Preto", lancamento: 2019, magia: "Sim", temPar: "Não", local: "Ilha dos Perdidos" }
 ];
+
+// Sorteando o personagem do dia
+let personagemDoDia = personagensDb[Math.floor(Math.random() * personagensDb.length)];
+console.log("🤫 Spoiler! A resposta de hoje é:", personagemDoDia.nome);
+
+// Referências aos elementos HTML
+const input = document.getElementById("guessInput");
+const autocompleteList = document.getElementById("custom-autocomplete");
+const tabelaBody = document.getElementById("guessesBody");
+const winMessage = document.getElementById("message");
+const winName = document.getElementById("winName");
+
+// 1. SISTEMA DE AUTOCOMPLETE
+input.addEventListener("input", function() {
+    const valorDigitado = this.value.toLowerCase();
+    autocompleteList.innerHTML = "";
+    
+    if (!valorDigitado) {
+        autocompleteList.style.display = "none";
+        return;
+    }
+
+    // Filtra os personagens que combinam com o que foi digitado
+    const resultados = personagensDb.filter(p => p.nome.toLowerCase().includes(valorDigitado));
+    
+    if (resultados.length > 0) {
+        autocompleteList.style.display = "block";
+        resultados.forEach(match => {
+            const item = document.createElement("div");
+            item.className = "autocomplete-item";
+            item.innerText = match.nome;
+            
+            // Se clicar na opção, autocompleta e envia
+            item.addEventListener("click", function() {
+                input.value = match.nome;
+                autocompleteList.style.display = "none";
+                fazerPalpite(); // Envia direto!
+            });
+            
+            autocompleteList.appendChild(item);
+        });
+    } else {
+        autocompleteList.style.display = "none";
+    }
+});
+
+// 2. SISTEMA DE "ENTER" PARA AUTO-COMPLETAR E ENVIAR
+input.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        e.preventDefault(); // Evita recarregar a página
+        const valorDigitado = this.value.toLowerCase().trim();
+        
+        if (valorDigitado === "") return;
+
+        // Procura se tem um exato primeiro, se não, pega o primeiro que contiver a letra
+        const exato = personagensDb.find(p => p.nome.toLowerCase() === valorDigitado);
+        const parcial = personagensDb.find(p => p.nome.toLowerCase().includes(valorDigitado));
+
+        const personagemEscolhido = exato || parcial;
+
+        if (personagemEscolhido) {
+            input.value = personagemEscolhido.nome; // Preenche o input com o nome certinho (ex: Mal)
+            autocompleteList.style.display = "none"; // Esconde a lista
+            fazerPalpite(); // Executa a adivinhação
+        }
+    }
+});
+
+// Esconde o autocomplete se clicar fora
+document.addEventListener("click", function(e) {
+    if (e.target !== input && e.target !== autocompleteList) {
+        autocompleteList.style.display = "none";
+    }
+});
+
+// 3. LÓGICA DE ADIVINHAÇÃO (O Palpite)
+function fazerPalpite() {
+    const nomePalpite = input.value;
+    const palpiteObj = personagensDb.find(p => p.nome === nomePalpite);
+    
+    if (!palpiteObj) {
+        alert("Personagem não encontrado na lista!");
+        return;
+    }
+
+    const tr = document.createElement("tr");
+    tr.className = "new-row"; // Para a animação de flip
+
+    // Cria as células da tabela (Nome, Filme, Estúdio, Cabelo, Lançamento, Magia, Tem Par, Local)
+    tr.appendChild(criarCelula(palpiteObj.nome, palpiteObj.nome === personagemDoDia.nome));
+    tr.appendChild(criarCelula(palpiteObj.filme, palpiteObj.filme === personagemDoDia.filme));
+    tr.appendChild(criarCelula(palpiteObj.estudio, palpiteObj.estudio === personagemDoDia.estudio));
+    tr.appendChild(criarCelula(palpiteObj.cabelo, palpiteObj.cabelo === personagemDoDia.cabelo));
+    
+    // Lógica especial da Seta para o Ano de Lançamento
+    const cellAno = document.createElement("td");
+    if (palpiteObj.lancamento === personagemDoDia.lancamento) {
+        cellAno.className = "match";
+        cellAno.innerText = palpiteObj.lancamento;
+    } else {
+        cellAno.className = "arrow-cell";
+        const isOlder = palpiteObj.lancamento < personagemDoDia.lancamento; // Se for menor, seta pra cima ⬆️
+        cellAno.innerHTML = `
+            <div class="graphic-arrow-container">
+                <div class="graphic-arrow ${isOlder ? 'arrow-up' : 'arrow-down'}"></div>
+                <span class="arrow-year">${palpiteObj.lancamento}</span>
+            </div>
+        `;
+    }
+    tr.appendChild(cellAno);
+
+    tr.appendChild(criarCelula(palpiteObj.magia, palpiteObj.magia === personagemDoDia.magia));
+    tr.appendChild(criarCelula(palpiteObj.temPar, palpiteObj.temPar === personagemDoDia.temPar));
+    tr.appendChild(criarCelula(palpiteObj.local, palpiteObj.local === personagemDoDia.local));
+
+    tabelaBody.insertBefore(tr, tabelaBody.firstChild); // Adiciona a nova linha no topo
+
+    // Limpa o input
+    input.value = "";
+
+    // Verifica Vitória
+    if (palpiteObj.nome === personagemDoDia.nome) {
+        winMessage.style.display = "flex";
+        winName.innerText = palpiteObj.nome;
+        
+        // Toca o áudio de vitória (Opcional, certifique-se de que o id winAudio existe no HTML)
+        const audio = document.getElementById("winAudio");
+        if(audio) audio.play();
+        
+        input.disabled = true; // Trava o input após ganhar
+    }
+}
+
+// Função auxiliar para criar as células coloridas
+function criarCelula(texto, isMatch) {
+    const td = document.createElement("td");
+    td.innerText = texto;
+    td.className = isMatch ? "match" : "no-match";
+    return td;
+}
+
+// Trocar Modos (Abas)
+function trocarModo(idModo, btnElement) {
+    document.querySelectorAll('.mode-section').forEach(sec => sec.classList.remove('active'));
+    document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+    
+    document.getElementById(idModo).classList.add('active');
+    btnElement.classList.add('active');
+}
