@@ -55,7 +55,7 @@ body {
     background-color: var(--primary-color);
     color: white;
     border-color: var(--primary-hover);
-    box-shadow: 0 0 15px rgba(209, 71, 163, 0.4);
+    box-shadow: 0 0 15px rgba(163, 67, 211, 0.4);
 }
 
 /* Ocultar as seções inativas */
@@ -104,8 +104,8 @@ h1 {
 
 h1:hover {
     transform: scale(1.05) translateY(-3px);
-    color: #e56cc0; 
-    text-shadow: 0 0 25px rgba(209, 71, 163, 0.6), 0 0 10px rgba(255, 255, 255, 0.8); 
+    color: #800fb8; 
+    text-shadow: 0 0 25px rgba(99, 15, 105, 0.6), 0 0 10px rgba(48, 46, 46, 0.8); 
 }
 
 p.subtitle {
