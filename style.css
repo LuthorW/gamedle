@@ -218,12 +218,29 @@ td {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
-/* A primeira célula geralmente é a imagem ou nome limpo */
+/* Força a primeira célula (onde fica a foto) a não esticar a tabela */
 td:first-child {
-    background: var(--panel-bg);
-    color: var(--text-color);
+    width: 95px;
+    height: 95px;
+    min-width: 95px;
+    max-width: 95px;
+    padding: 0;
+    overflow: hidden;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+}
+
+/* Essa é a parte que estava faltando! Deixa a foto quadrada e perfeita */
+.killer-img {
+    width: 95px;
+    height: 95px;
+    object-fit: cover; /* Corta a rebarba da foto para caber no quadrado sem amassar */
+    display: block;
+    border-radius: 12px;
+    background-color: var(--panel-bg);
     border: 2px solid var(--border-color);
-    text-shadow: none;
+    box-sizing: border-box;
 }
 
 .match { background-color: var(--correct); border-color: #6bc248; }
@@ -287,6 +304,17 @@ td:first-child {
 /* Autocomplete list fofa */
 .input-wrapper { position: relative; flex: 1; }
 .input-wrapper input { width: 100%; box-sizing: border-box; }
+
+/* Tamanho da foto dentro da lista de pesquisa */
+.autocomplete-img {
+    width: 45px;
+    height: 45px;
+    object-fit: cover; /* Deixa a foto quadradinha sem amassar */
+    border-radius: 6px; /* Bordinha levemente arredondada */
+    background-color: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    flex-shrink: 0; /* Impede que o texto amasse a imagem */
+}
 
 .autocomplete-list {
     position: absolute; top: 100%; left: 0; right: 0;
