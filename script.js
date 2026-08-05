@@ -54,7 +54,6 @@ const personagensDb = [
   { id: "judy-hopps", nome: "Judy Hopps", filme: "Zootopia", estudio: "Disney", genero: "Feminino", cabelo: "Cinza", lancamento: 2016, magia: "Não", temPar: "Não", local: "Zootopia" },
   { id: "nick-wilde", nome: "Nick Wilde", filme: "Zootopia", estudio: "Disney", genero: "Masculino", cabelo: "Laranja", lancamento: 2016, magia: "Não", temPar: "Não", local: "Zootopia" },
   { id: "moana", nome: "Moana", filme: "Moana", estudio: "Disney", genero: "Feminino", cabelo: "Preto", lancamento: 2016, magia: "Sim", temPar: "Não", local: "Polinésia" },
-  { id: "sisu", nome: "Sisu", filme: "Raya e o Último Dragão", estudio: "Disney", genero: "Feminino", cabelo: "Azul", lancamento: 2021, magia: "Sim", temPar: "Não", local: "Kumandra" },
   { id: "mirabel", nome: "Mirabel", filme: "Encanto", estudio: "Disney", genero: "Feminino", cabelo: "Castanho", lancamento: 2021, magia: "Não", temPar: "Não", local: "Colômbia" },
 
   // ==========================================
