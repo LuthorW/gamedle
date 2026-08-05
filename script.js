@@ -314,13 +314,31 @@ function configurarAutocomplete(inputId, listId, database, arrayMemoria, funcaoP
             const valorDigitado = removerAcentos(this.value.toLowerCase().trim());
             if (valorDigitado === "") return;
 
-            const disponiveis = database.filter(p => !arrayMemoria.includes(p.nome));
-            
-            // Procura exato e parcial ignorando acentos
-            const exato = disponiveis.find(p => removerAcentos(p.nome.toLowerCase()) === valorDigitado);
-            const parcial = disponiveis.find(p => removerAcentos(p.nome.toLowerCase()).includes(valorDigitado));
-            
-            const personagemEscolhido = exato || parcial;
+            let resultados = database.filter(p => {
+                const nomeSemAcento = removerAcentos(p.nome.toLowerCase());
+                return nomeSemAcento.includes(valorDigitado) && !arrayMemoria.includes(p.nome);
+            });
+
+            if (resultados.length === 0) return; 
+
+            const exato = resultados.find(p => removerAcentos(p.nome.toLowerCase()) === valorDigitado);
+
+            if (!exato) {
+                resultados.sort((a, b) => {
+                    const nomeA = removerAcentos(a.nome.toLowerCase());
+                    const nomeB = removerAcentos(b.nome.toLowerCase());
+                    
+                    const comecaComA = nomeA.startsWith(valorDigitado);
+                    const comecaComB = nomeB.startsWith(valorDigitado);
+                    
+                    if (comecaComA && !comecaComB) return -1;
+                    if (!comecaComA && comecaComB) return 1;
+                    
+                    return a.nome.localeCompare(b.nome);
+                });
+            }
+
+            const personagemEscolhido = exato || resultados[0];
 
             if (personagemEscolhido) {
                 input.value = personagemEscolhido.nome; 
@@ -497,4 +515,37 @@ function trocarModo(idModo, btnElement) {
     
     document.getElementById(idModo).classList.add('active');
     btnElement.classList.add('active');
+}
+
+// ==========================================
+// 7. ANIMAÇÃO DE CONFETES 🎉
+// ==========================================
+function dispararConfetes() {
+    if (typeof confetti === "function") {
+        var duration = 3 * 1000; // Dura 3 segundos
+        var end = Date.now() + duration;
+
+        (function frame() {
+            // Confetes saindo da esquerda
+            confetti({
+                particleCount: 5,
+                angle: 60,
+                spread: 55,
+                origin: { x: 0 },
+                colors: ['#8a2be2', '#2e7d32', '#ffffff'] // Roxo, verde e branco
+            });
+            // Confetes saindo da direita
+            confetti({
+                particleCount: 5,
+                angle: 120,
+                spread: 55,
+                origin: { x: 1 },
+                colors: ['#8a2be2', '#2e7d32', '#ffffff']
+            });
+
+            if (Date.now() < end) {
+                requestAnimationFrame(frame);
+            }
+        }());
+    }
 }
