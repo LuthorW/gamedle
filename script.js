@@ -235,9 +235,7 @@ const hpDb = [
   { id: "grope", nome: "Grope", genero: "Masculino", casa: "Nenhuma", sangue: "Desconhecido", especie: "Gigante", cabelo: "Castanho", ano: 2007 }
 ];
 
-// ==========================================
-// 2. VARIÁVEIS INICIAIS
-// ==========================================
+// VARIÁVEIS INICIAIS
 let personagemDoDia = personagensDb[Math.floor(Math.random() * personagensDb.length)];
 let hpDoDia = hpDb[Math.floor(Math.random() * hpDb.length)];
 
@@ -246,16 +244,20 @@ console.log("🤫 Disney:", personagemDoDia.nome, "| HP:", hpDoDia.nome);
 let palpitesFeitos = [];
 let palpitesFeitosHp = [];
 
-// ==========================================
-// 3. SISTEMA DE AUTOCOMPLETE INTELIGENTE
-// ==========================================
+// FUNÇÃO PARA REMOVER ACENTOS
+function removerAcentos(str) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+// SISTEMA DE AUTOCOMPLETE INTELIGENTE
 function configurarAutocomplete(inputId, listId, database, arrayMemoria, funcaoPalpite, pastaFotos) {
     const input = document.getElementById(inputId);
     const list = document.getElementById(listId);
 
     // Quando digitar algo...
     input.addEventListener("input", function() {
-        const valorDigitado = this.value.toLowerCase();
+        // Limpa e tira acento do que o usuário digitou
+        const valorDigitado = removerAcentos(this.value.toLowerCase());
         list.innerHTML = "";
         
         if (!valorDigitado) {
@@ -263,11 +265,27 @@ function configurarAutocomplete(inputId, listId, database, arrayMemoria, funcaoP
             return;
         }
 
-        const resultados = database.filter(p => 
-            p.nome.toLowerCase().includes(valorDigitado) && 
-            !arrayMemoria.includes(p.nome)
-        );
+        // 1. Filtra os resultados ignorando os acentos
+        let resultados = database.filter(p => {
+            const nomeSemAcento = removerAcentos(p.nome.toLowerCase());
+            return nomeSemAcento.includes(valorDigitado) && !arrayMemoria.includes(p.nome);
+        });
         
+        // 2. Ordena os resultados: quem COMEÇA com a letra vem primeiro
+        resultados.sort((a, b) => {
+            const nomeA = removerAcentos(a.nome.toLowerCase());
+            const nomeB = removerAcentos(b.nome.toLowerCase());
+            
+            const comecaComA = nomeA.startsWith(valorDigitado);
+            const comecaComB = nomeB.startsWith(valorDigitado);
+            
+            if (comecaComA && !comecaComB) return -1; // A sobe na lista
+            if (!comecaComA && comecaComB) return 1;  // B sobe na lista
+            
+            // Se ambos começam (ou não começam) com a letra, desempata por ordem alfabética normal
+            return a.nome.localeCompare(b.nome);
+        });
+
         if (resultados.length > 0) {
             list.style.display = "block";
             resultados.forEach(match => {
@@ -293,12 +311,15 @@ function configurarAutocomplete(inputId, listId, database, arrayMemoria, funcaoP
     input.addEventListener("keydown", function(e) {
         if (e.key === "Enter") {
             e.preventDefault(); 
-            const valorDigitado = this.value.toLowerCase().trim();
+            const valorDigitado = removerAcentos(this.value.toLowerCase().trim());
             if (valorDigitado === "") return;
 
             const disponiveis = database.filter(p => !arrayMemoria.includes(p.nome));
-            const exato = disponiveis.find(p => p.nome.toLowerCase() === valorDigitado);
-            const parcial = disponiveis.find(p => p.nome.toLowerCase().includes(valorDigitado));
+            
+            // Procura exato e parcial ignorando acentos
+            const exato = disponiveis.find(p => removerAcentos(p.nome.toLowerCase()) === valorDigitado);
+            const parcial = disponiveis.find(p => removerAcentos(p.nome.toLowerCase()).includes(valorDigitado));
+            
             const personagemEscolhido = exato || parcial;
 
             if (personagemEscolhido) {
