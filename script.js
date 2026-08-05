@@ -398,7 +398,12 @@ function fazerPalpite() {
         document.getElementById("message").style.display = "flex";
         document.getElementById("winName").innerText = palpiteObj.nome;
         document.getElementById("winImage").src = `fotos/${palpiteObj.id}.${ext}`;
+        
+        document.getElementById("winAttempts").innerText = `Você acertou em ${palpitesFeitos.length} tentativa(s)!`;
+        document.querySelector("#classic-mode .game-controls").style.display = "none";
+        
         tocarAudiosVitoria();
+        dispararConfetes(); // Chama os confetes
         inputDisney.disabled = true; 
     }
 }
@@ -451,7 +456,12 @@ function fazerPalpiteHp() {
         document.getElementById("message-hp").style.display = "flex";
         document.getElementById("winNameHp").innerText = palpiteObj.nome;
         document.getElementById("winImageHp").src = `fotos_hp/${palpiteObj.id}.${ext}`;
+        
+        document.getElementById("winAttemptsHp").innerText = `Você acertou em ${palpitesFeitosHp.length} tentativa(s)!`;
+        document.querySelector("#hp-mode .game-controls").style.display = "none";
+
         tocarAudiosVitoria();
+        dispararConfetes(); // Chama os confetes
         inputHp.disabled = true; 
     }
 }

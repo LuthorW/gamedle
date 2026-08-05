@@ -294,8 +294,8 @@ td:first-child {
 }
 
 .win-image {
-    width: 150px; /* Define um tamanho fixo e menor */
-    height: 150px; /* Mantém a imagem quadrada */
+    width: 180px; /* Define um tamanho fixo e menor */
+    height: 180px; /* Mantém a imagem quadrada */
     object-fit: cover; /* Evita que a imagem fique achatada */
     border-radius: 12px; /* Arredonda as bordas */
     border: 3px solid var(--correct); /* Adiciona a borda verde de acerto */
