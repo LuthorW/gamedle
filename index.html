@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magicdle</title>
+    <title>Malu Kisses</title>
 
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
@@ -20,11 +20,11 @@
 
     <div class="mode-controls">
         <button id="btn-classic" class="mode-btn active" onclick="trocarModo('classic-mode', this)">Modo Clássico</button>
-        <button id="btn-emoji" class="mode-btn" onclick="trocarModo('emoji-mode', this)">Modo Emoji</button>
+        <button id="btn-harry" class="mode-btn" onclick="trocarModo('hp-mode', this)">Harry Potter</button>
     </div>
 
-    <h1>Magicdle</h1>
-    <p class="subtitle">Adivinhe o personagem mágico de hoje!</p>
+    <h1>Malu Kisses💋</h1>
+    <p class="subtitle">Adivinhe o personagem bb</p>
 
     <!-- MODO CLÁSSICO -->
     <div id="classic-mode" class="mode-section active">
@@ -38,7 +38,7 @@
 
         <div id="message" class="win-message">
             <h2 class="win-title">Parabéns! Você adivinhou o personagem! 🎉</h2>
-            <!-- Imagem do vencedor pode ser adicionada depois -->
+            <img id="winImage" class="win-image" src="" alt="Personagem Vencedor">
             <p id="winName" class="win-name"></p>
         </div>
 
@@ -63,25 +63,38 @@
         </div>
     </div>
 
-    <!-- MODO EMOJI (Deixei estruturado baseado no seu Perk Mode) -->
-    <div id="emoji-mode" class="mode-section">
-        <div class="perk-blur-container">
-            <!-- Em vez de imagem borrada, pode ser uma <div> com emojis -->
-            <h2 id="hiddenEmoji" style="font-size: 3rem; margin: 20px;">🍎 👗 🐦 ⛏️</h2>
-            <p class="perk-blur-text">Adivinhe quem é pelos Emojis!</p>
-        </div>
 
+    <div id="hp-mode" class="mode-section">
         <div class="game-controls">
             <div class="input-wrapper">
-                <input type="text" id="guessEmojiInput" placeholder="Digite o nome..." autocomplete="off">
-                <div id="auto-emoji" class="autocomplete-list"></div>
+                <input type="text" id="guessHpInput" placeholder="Digite o bruxo..." autocomplete="off">
+                <div id="auto-hp" class="autocomplete-list"></div>
             </div>
-            <button type="button" onclick="fazerPalpiteEmoji()">Adivinhar</button>
+            <button type="button" onclick="fazerPalpiteHp()">Adivinhar</button>
         </div>
 
-        <div id="msg-emoji" class="win-message">
-            <h2 class="win-title">Parabéns! Você adivinhou o personagem! 🎉</h2>
-            <p id="winNameEmoji" class="win-name"></p>
+        <div id="message-hp" class="win-message">
+            <h2 class="win-title">Parabéns! 10 pontos para sua casa! 🪄</h2>
+            <img id="winImageHp" class="win-image" src="" alt="Bruxo Vencedor">
+            <p id="winNameHp" class="win-name"></p>
+        </div>
+
+        <div class="table-container">
+            <table id="guessesTableHp">
+                <thead>
+                    <tr>
+                        <th>        </th>
+                        <th>Personagem</th>
+                        <th>Gênero</th>
+                        <th>Casa</th>
+                        <th>Sangue</th>
+                        <th>Espécie</th>
+                        <th>Cabelo</th>
+                        <th>Ano</th>
+                    </tr>
+                </thead>
+                <tbody id="guessesBodyHp"></tbody>
+            </table>
         </div>
     </div>
 

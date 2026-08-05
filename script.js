@@ -131,109 +131,223 @@ const personagensDb = [
   { id: "celia", nome: "Celia", filme: "Descendentes", estudio: "Disney", genero: "Feminino", cabelo: "Preto", lancamento: 2019, magia: "Sim", temPar: "Não", local: "Ilha dos Perdidos" }
 ];
 
-// Sorteando o personagem do dia
+const hpDb = [
+// ==========================================
+  // 🦁 GRIFINÓRIA
+  // ==========================================
+  { id: "harry-potter", nome: "Harry Potter", genero: "Masculino", casa: "Grifinória", sangue: "Mestiço", especie: "Humano", cabelo: "Preto", ano: 2001 },
+  { id: "rony-weasley", nome: "Rony Weasley", genero: "Masculino", casa: "Grifinória", sangue: "Puro-sangue", especie: "Humano", cabelo: "Ruivo", ano: 2001 },
+  { id: "hermione-granger", nome: "Hermione Granger", genero: "Feminino", casa: "Grifinória", sangue: "Nascido-trouxa", especie: "Humano", cabelo: "Castanho", ano: 2001 },
+  { id: "alvo-dumbledore", nome: "Alvo Dumbledore", genero: "Masculino", casa: "Grifinória", sangue: "Mestiço", especie: "Humano", cabelo: "Branco", ano: 2001 },
+  { id: "minerva-mcgonagall", nome: "Minerva McGonagall", genero: "Feminino", casa: "Grifinória", sangue: "Mestiço", especie: "Humano", cabelo: "Preto", ano: 2001 },
+  { id: "neville-longbottom", nome: "Neville Longbottom", genero: "Masculino", casa: "Grifinória", sangue: "Puro-sangue", especie: "Humano", cabelo: "Castanho", ano: 2001 },
+  { id: "gina-weasley", nome: "Gina Weasley", genero: "Feminino", casa: "Grifinória", sangue: "Puro-sangue", especie: "Humano", cabelo: "Ruivo", ano: 2001 },
+  { id: "sirius-black", nome: "Sirius Black", genero: "Masculino", casa: "Grifinória", sangue: "Puro-sangue", especie: "Humano", cabelo: "Preto", ano: 2004 },
+  { id: "remo-lupin", nome: "Remo Lupin", genero: "Masculino", casa: "Grifinória", sangue: "Mestiço", especie: "Lobisomem", cabelo: "Castanho", ano: 2004 },
+  { id: "hagrid", nome: "Rúbeo Hagrid", genero: "Masculino", casa: "Grifinória", sangue: "Mestiço", especie: "Meio-Gigante", cabelo: "Preto", ano: 2001 },
+  { id: "fred-weasley", nome: "Fred Weasley", genero: "Masculino", casa: "Grifinória", sangue: "Puro-sangue", especie: "Humano", cabelo: "Ruivo", ano: 2001 },
+  { id: "jorge-weasley", nome: "Jorge Weasley", genero: "Masculino", casa: "Grifinória", sangue: "Puro-sangue", especie: "Humano", cabelo: "Ruivo", ano: 2001 },
+  { id: "arthur-weasley", nome: "Arthur Weasley", genero: "Masculino", casa: "Grifinória", sangue: "Puro-sangue", especie: "Humano", cabelo: "Ruivo", ano: 2002 },
+  { id: "molly-weasley", nome: "Molly Weasley", genero: "Feminino", casa: "Grifinória", sangue: "Puro-sangue", especie: "Humano", cabelo: "Ruivo", ano: 2001 },
+  { id: "percy-weasley", nome: "Percy Weasley", genero: "Masculino", casa: "Grifinória", sangue: "Puro-sangue", especie: "Humano", cabelo: "Ruivo", ano: 2001 },
+  { id: "gui-weasley", nome: "Gui Weasley", genero: "Masculino", casa: "Grifinória", sangue: "Puro-sangue", especie: "Humano", cabelo: "Ruivo", ano: 2010 },
+  { id: "simas-finnigan", nome: "Simas Finnigan", genero: "Masculino", casa: "Grifinória", sangue: "Mestiço", especie: "Humano", cabelo: "Castanho", ano: 2001 },
+  { id: "dino-thomas", nome: "Dino Thomas", genero: "Masculino", casa: "Grifinória", sangue: "Mestiço", especie: "Humano", cabelo: "Preto", ano: 2001 },
+  { id: "lila-brown", nome: "Lilá Brown", genero: "Feminino", casa: "Grifinória", sangue: "Puro-sangue", especie: "Humano", cabelo: "Loiro", ano: 2004 },
+  { id: "parvati-patil", nome: "Parvati Patil", genero: "Feminino", casa: "Grifinória", sangue: "Puro-sangue", especie: "Humano", cabelo: "Preto", ano: 2004 },
+  { id: "olivio-wood", nome: "Olívio Wood", genero: "Masculino", casa: "Grifinória", sangue: "Puro-sangue", especie: "Humano", cabelo: "Castanho", ano: 2001 },
+  { id: "katie-bell", nome: "Katie Bell", genero: "Feminino", casa: "Grifinória", sangue: "Puro-sangue", especie: "Humano", cabelo: "Castanho", ano: 2001 },
+  { id: "tiago-potter", nome: "Tiago Potter", genero: "Masculino", casa: "Grifinória", sangue: "Puro-sangue", especie: "Humano", cabelo: "Preto", ano: 2001 },
+  { id: "lilian-potter", nome: "Lílian Potter", genero: "Feminino", casa: "Grifinória", sangue: "Nascido-trouxa", especie: "Humano", cabelo: "Ruivo", ano: 2001 },
+  { id: "pedro-pettigrew", nome: "Pedro Pettigrew", genero: "Masculino", casa: "Grifinória", sangue: "Puro-sangue", especie: "Humano", cabelo: "Loiro", ano: 2004 },
+  { id: "colin-creevey", nome: "Colin Creevey", genero: "Masculino", casa: "Grifinória", sangue: "Nascido-trouxa", especie: "Humano", cabelo: "Loiro", ano: 2002 },
+
+  // ==========================================
+  // 🐍 SONSERINA
+  // ==========================================
+  { id: "draco-malfoy", nome: "Draco Malfoy", genero: "Masculino", casa: "Sonserina", sangue: "Puro-sangue", especie: "Humano", cabelo: "Loiro", ano: 2001 },
+  { id: "severo-snape", nome: "Severo Snape", genero: "Masculino", casa: "Sonserina", sangue: "Mestiço", especie: "Humano", cabelo: "Preto", ano: 2001 },
+  { id: "voldemort", nome: "Lord Voldemort", genero: "Masculino", casa: "Sonserina", sangue: "Mestiço", especie: "Humano", cabelo: "Nenhum", ano: 2001 },
+  { id: "bellatrix-lestrange", nome: "Bellatrix Lestrange", genero: "Feminino", casa: "Sonserina", sangue: "Puro-sangue", especie: "Humano", cabelo: "Preto", ano: 2007 },
+  { id: "lucio-malfoy", nome: "Lúcio Malfoy", genero: "Masculino", casa: "Sonserina", sangue: "Puro-sangue", especie: "Humano", cabelo: "Loiro", ano: 2002 },
+  { id: "narcisa-malfoy", nome: "Narcisa Malfoy", genero: "Feminino", casa: "Sonserina", sangue: "Puro-sangue", especie: "Humano", cabelo: "Loiro e Preto", ano: 2009 },
+  { id: "horacio-slughorn", nome: "Horácio Slughorn", genero: "Masculino", casa: "Sonserina", sangue: "Puro-sangue", especie: "Humano", cabelo: "Grisalho", ano: 2009 },
+  { id: "dolores-umbridge", nome: "Dolores Umbridge", genero: "Feminino", casa: "Sonserina", sangue: "Mestiço", especie: "Humano", cabelo: "Castanho", ano: 2007 },
+  { id: "vicente-crabbe", nome: "Vicente Crabbe", genero: "Masculino", casa: "Sonserina", sangue: "Puro-sangue", especie: "Humano", cabelo: "Preto", ano: 2001 },
+  { id: "gregorio-goyle", nome: "Gregório Goyle", genero: "Masculino", casa: "Sonserina", sangue: "Puro-sangue", especie: "Humano", cabelo: "Preto", ano: 2001 },
+  { id: "pansy-parkinson", nome: "Pansy Parkinson", genero: "Feminino", casa: "Sonserina", sangue: "Puro-sangue", especie: "Humano", cabelo: "Preto", ano: 2004 },
+  { id: "blasio-zabini", nome: "Blásio Zabini", genero: "Masculino", casa: "Sonserina", sangue: "Puro-sangue", especie: "Humano", cabelo: "Preto", ano: 2009 },
+  { id: "barto-crouch-jr", nome: "Bartô Crouch Jr.", genero: "Masculino", casa: "Sonserina", sangue: "Puro-sangue", especie: "Humano", cabelo: "Castanho", ano: 2005 },
+  { id: "regulo-black", nome: "Régulo Black", genero: "Masculino", casa: "Sonserina", sangue: "Puro-sangue", especie: "Humano", cabelo: "Preto", ano: 2009 },
+  { id: "leta-lestrange", nome: "Leta Lestrange", genero: "Feminino", casa: "Sonserina", sangue: "Puro-sangue", especie: "Humano", cabelo: "Castanho", ano: 2018 },
+
+  // ==========================================
+  // 🦅 CORVINAL
+  // ==========================================
+  { id: "luna-lovegood", nome: "Luna Lovegood", genero: "Feminino", casa: "Corvinal", sangue: "Puro-sangue", especie: "Humano", cabelo: "Loiro", ano: 2007 },
+  { id: "cho-chang", nome: "Cho Chang", genero: "Feminino", casa: "Corvinal", sangue: "Puro-sangue", especie: "Humano", cabelo: "Preto", ano: 2005 },
+  { id: "filius-flitwick", nome: "Fílio Flitwick", genero: "Masculino", casa: "Corvinal", sangue: "Mestiço", especie: "Duende", cabelo: "Preto", ano: 2001 },
+  { id: "murta-que-geme", nome: "Murta que Geme", genero: "Feminino", casa: "Corvinal", sangue: "Nascido-trouxa", especie: "Fantasma", cabelo: "Castanho", ano: 2002 },
+  { id: "sibila-trelawney", nome: "Sibila Trelawney", genero: "Feminino", casa: "Corvinal", sangue: "Mestiço", especie: "Humano", cabelo: "Castanho", ano: 2004 },
+  { id: "gilderoy-lockhart", nome: "Gilderoy Lockhart", genero: "Masculino", casa: "Corvinal", sangue: "Mestiço", especie: "Humano", cabelo: "Loiro", ano: 2002 },
+  { id: "padma-patil", nome: "Padma Patil", genero: "Feminino", casa: "Corvinal", sangue: "Puro-sangue", especie: "Humano", cabelo: "Preto", ano: 2005 },
+  { id: "helena-corvinal", nome: "Helena Corvinal", genero: "Feminino", casa: "Corvinal", sangue: "Puro-sangue", especie: "Fantasma", cabelo: "Preto", ano: 2011 },
+  { id: "garrick-olivaras", nome: "Garrick Olivaras", genero: "Masculino", casa: "Corvinal", sangue: "Mestiço", especie: "Humano", cabelo: "Branco", ano: 2001 },
+  { id: "quirino-quirrell", nome: "Quirino Quirrell", genero: "Masculino", casa: "Corvinal", sangue: "Mestiço", especie: "Humano", cabelo: "Nenhum", ano: 2001 },
+  { id: "rita-skeeter", nome: "Rita Skeeter", genero: "Feminino", casa: "Corvinal", sangue: "Desconhecido", especie: "Humano", cabelo: "Loiro", ano: 2005 },
+
+  // ==========================================
+  // 🦡 LUFA-LUFA
+  // ==========================================
+  { id: "cedrico-diggory", nome: "Cedrico Diggory", genero: "Masculino", casa: "Lufa-Lufa", sangue: "Puro-sangue", especie: "Humano", cabelo: "Castanho", ano: 2005 },
+  { id: "newt-scamander", nome: "Newt Scamander", genero: "Masculino", casa: "Lufa-Lufa", sangue: "Puro-sangue", especie: "Humano", cabelo: "Ruivo", ano: 2016 },
+  { id: "ninfadora-tonks", nome: "Ninfadora Tonks", genero: "Feminino", casa: "Lufa-Lufa", sangue: "Mestiço", especie: "Humano", cabelo: "Roxo", ano: 2007 },
+  { id: "pomona-sprout", nome: "Pomona Sprout", genero: "Feminino", casa: "Lufa-Lufa", sangue: "Mestiço", especie: "Humano", cabelo: "Grisalho", ano: 2002 },
+  { id: "teseu-scamander", nome: "Teseu Scamander", genero: "Masculino", casa: "Lufa-Lufa", sangue: "Puro-sangue", especie: "Humano", cabelo: "Castanho", ano: 2018 },
+  { id: "frei-gorducho", nome: "Frei Gorducho", genero: "Masculino", casa: "Lufa-Lufa", sangue: "Desconhecido", especie: "Fantasma", cabelo: "Castanho", ano: 2001 },
+  { id: "justino-finch", nome: "Justino Finch-Fletchley", genero: "Masculino", casa: "Lufa-Lufa", sangue: "Nascido-trouxa", especie: "Humano", cabelo: "Castanho", ano: 2002 },
+  { id: "susana-bones", nome: "Susana Bones", genero: "Feminino", casa: "Lufa-Lufa", sangue: "Mestiço", especie: "Humano", cabelo: "Ruivo", ano: 2001 },
+
+  // ==========================================
+  // ⚡ OUTRAS CASAS / SEM CASA / CRIATURAS
+  // ==========================================
+  { id: "dobby", nome: "Dobby", genero: "Masculino", casa: "Nenhuma", sangue: "Desconhecido", especie: "Elfo Doméstico", cabelo: "Nenhum", ano: 2002 },
+  { id: "fleur-delacour", nome: "Fleur Delacour", genero: "Feminino", casa: "Beauxbatons", sangue: "Mestiço", especie: "Meio-Veela", cabelo: "Loiro", ano: 2005 },
+  { id: "vitor-krum", nome: "Vítor Krum", genero: "Masculino", casa: "Durmstrang", sangue: "Puro-sangue", especie: "Humano", cabelo: "Castanho", ano: 2005 },
+  { id: "valter-dursley", nome: "Válter Dursley", genero: "Masculino", casa: "Nenhuma", sangue: "Trouxa", especie: "Humano", cabelo: "Castanho", ano: 2001 },
+  { id: "petunia-dursley", nome: "Petúnia Dursley", genero: "Feminino", casa: "Nenhuma", sangue: "Trouxa", especie: "Humano", cabelo: "Castanho", ano: 2001 },
+  { id: "duda-dursley", nome: "Duda Dursley", genero: "Masculino", casa: "Nenhuma", sangue: "Trouxa", especie: "Humano", cabelo: "Loiro", ano: 2001 },
+  { id: "argus-filch", nome: "Argo Filch", genero: "Masculino", casa: "Nenhuma", sangue: "Aborto", especie: "Humano", cabelo: "Grisalho", ano: 2001 },
+  { id: "alastor-moody", nome: "Alastor Moody", genero: "Masculino", casa: "Nenhuma", sangue: "Puro-sangue", especie: "Humano", cabelo: "Castanho", ano: 2005 },
+  { id: "cornelio-fudge", nome: "Cornélio Fudge", genero: "Masculino", casa: "Nenhuma", sangue: "Puro-sangue", especie: "Humano", cabelo: "Grisalho", ano: 2002 },
+  { id: "kingsley-shacklebolt", nome: "Kingsley Shacklebolt", genero: "Masculino", casa: "Nenhuma", sangue: "Puro-sangue", especie: "Humano", cabelo: "Nenhum", ano: 2007 },
+  { id: "olimpia-maxime", nome: "Olímpia Maxime", genero: "Feminino", casa: "Beauxbatons", sangue: "Mestiço", especie: "Meio-Gigante", cabelo: "Castanho", ano: 2005 },
+  { id: "igor-karkaroff", nome: "Igor Karkaroff", genero: "Masculino", casa: "Durmstrang", sangue: "Puro-sangue", especie: "Humano", cabelo: "Preto", ano: 2005 },
+  { id: "fenrir-greyback", nome: "Fenrir Greyback", genero: "Masculino", casa: "Nenhuma", sangue: "Desconhecido", especie: "Lobisomem", cabelo: "Grisalho", ano: 2009 },
+  { id: "gellert-grindelwald", nome: "Gellert Grindelwald", genero: "Masculino", casa: "Durmstrang", sangue: "Puro-sangue", especie: "Humano", cabelo: "Branco", ano: 2010 },
+  { id: "porpentina-goldstein", nome: "Porpentina Goldstein", genero: "Feminino", casa: "Ilvermorny", sangue: "Mestiço", especie: "Humano", cabelo: "Preto", ano: 2016 },
+  { id: "queenie-goldstein", nome: "Queenie Goldstein", genero: "Feminino", casa: "Ilvermorny", sangue: "Mestiço", especie: "Humano", cabelo: "Loiro", ano: 2016 },
+  { id: "jacob-kowalski", nome: "Jacob Kowalski", genero: "Masculino", casa: "Nenhuma", sangue: "Trouxa", especie: "Humano", cabelo: "Castanho", ano: 2016 },
+  { id: "credence-barebone", nome: "Credence Barebone", genero: "Masculino", casa: "Nenhuma", sangue: "Mestiço", especie: "Humano", cabelo: "Preto", ano: 2016 },
+  { id: "grampo", nome: "Grampo", genero: "Masculino", casa: "Nenhuma", sangue: "Desconhecido", especie: "Duende", cabelo: "Branco", ano: 2001 },
+  { id: "monstro", nome: "Monstro", genero: "Masculino", casa: "Nenhuma", sangue: "Desconhecido", especie: "Elfo Doméstico", cabelo: "Nenhum", ano: 2007 },
+  { id: "firenze", nome: "Firenze", genero: "Masculino", casa: "Nenhuma", sangue: "Desconhecido", especie: "Centauro", cabelo: "Loiro", ano: 2001 },
+  { id: "grope", nome: "Grope", genero: "Masculino", casa: "Nenhuma", sangue: "Desconhecido", especie: "Gigante", cabelo: "Castanho", ano: 2007 }
+];
+
+// ==========================================
+// 2. VARIÁVEIS INICIAIS
+// ==========================================
 let personagemDoDia = personagensDb[Math.floor(Math.random() * personagensDb.length)];
-console.log("🤫 Spoiler! A resposta de hoje é:", personagemDoDia.nome);
+let hpDoDia = hpDb[Math.floor(Math.random() * hpDb.length)];
+
+console.log("🤫 Disney:", personagemDoDia.nome, "| HP:", hpDoDia.nome);
 
 let palpitesFeitos = [];
+let palpitesFeitosHp = [];
 
-// Referências aos elementos HTML
-const input = document.getElementById("guessInput");
-const autocompleteList = document.getElementById("custom-autocomplete");
-const tabelaBody = document.getElementById("guessesBody");
-const winMessage = document.getElementById("message");
-const winName = document.getElementById("winName");
+// ==========================================
+// 3. SISTEMA DE AUTOCOMPLETE INTELIGENTE
+// ==========================================
+function configurarAutocomplete(inputId, listId, database, arrayMemoria, funcaoPalpite, pastaFotos) {
+    const input = document.getElementById(inputId);
+    const list = document.getElementById(listId);
 
-// 1. SISTEMA DE AUTOCOMPLETE (COM FOTO)
-input.addEventListener("input", function() {
-    const valorDigitado = this.value.toLowerCase();
-    autocompleteList.innerHTML = "";
-    
-    if (!valorDigitado) {
-        autocompleteList.style.display = "none";
-        return;
-    }
-
-    const resultados = personagensDb.filter(p => 
-        p.nome.toLowerCase().includes(valorDigitado) && 
-        !palpitesFeitos.includes(p.nome)
-    );
-    
-    if (resultados.length > 0) {
-        autocompleteList.style.display = "block";
-        resultados.forEach(match => {
-            const item = document.createElement("div");
-            item.className = "autocomplete-item";
-            item.innerHTML = `<img src="fotos/${match.id}.png" class="autocomplete-img"><span>${match.nome}</span>`;
-            
-            item.addEventListener("click", function() {
-                input.value = match.nome;
-                autocompleteList.style.display = "none";
-                fazerPalpite(); 
-            });
-            
-            autocompleteList.appendChild(item);
-        });
-    } else {
-        autocompleteList.style.display = "none";
-    }
-});
-
-// 2. SISTEMA DE "ENTER" PARA AUTO-COMPLETAR E ENVIAR
-input.addEventListener("keydown", function(e) {
-    if (e.key === "Enter") {
-        e.preventDefault(); 
-        const valorDigitado = this.value.toLowerCase().trim();
+    // Quando digitar algo...
+    input.addEventListener("input", function() {
+        const valorDigitado = this.value.toLowerCase();
+        list.innerHTML = "";
         
-        if (valorDigitado === "") return;
-
-        // ATUALIZE ESTAS LINHAS: Filtra apenas os personagens disponíveis
-        const disponiveis = personagensDb.filter(p => !palpitesFeitos.includes(p.nome));
-        const exato = disponiveis.find(p => p.nome.toLowerCase() === valorDigitado);
-        const parcial = disponiveis.find(p => p.nome.toLowerCase().includes(valorDigitado));
-
-        const personagemEscolhido = exato || parcial;
-
-        if (personagemEscolhido) {
-            input.value = personagemEscolhido.nome; 
-            autocompleteList.style.display = "none"; 
-            fazerPalpite(); 
+        if (!valorDigitado) {
+            list.style.display = "none";
+            return;
         }
-    }
+
+        const resultados = database.filter(p => 
+            p.nome.toLowerCase().includes(valorDigitado) && 
+            !arrayMemoria.includes(p.nome)
+        );
+        
+        if (resultados.length > 0) {
+            list.style.display = "block";
+            resultados.forEach(match => {
+                const item = document.createElement("div");
+                item.className = "autocomplete-item";
+                const ext = match.ext || "png";
+                item.innerHTML = `<img src="${pastaFotos}/${match.id}.${ext}" class="autocomplete-img"><span>${match.nome}</span>`;
+                
+                item.addEventListener("mousedown", function(e) {
+                    e.preventDefault();
+                    input.value = match.nome;
+                    list.style.display = "none";
+                    funcaoPalpite(); 
+                });
+                list.appendChild(item);
+            });
+        } else {
+            list.style.display = "none";
+        }
+    });
+
+    // Quando apertar Enter...
+    input.addEventListener("keydown", function(e) {
+        if (e.key === "Enter") {
+            e.preventDefault(); 
+            const valorDigitado = this.value.toLowerCase().trim();
+            if (valorDigitado === "") return;
+
+            const disponiveis = database.filter(p => !arrayMemoria.includes(p.nome));
+            const exato = disponiveis.find(p => p.nome.toLowerCase() === valorDigitado);
+            const parcial = disponiveis.find(p => p.nome.toLowerCase().includes(valorDigitado));
+            const personagemEscolhido = exato || parcial;
+
+            if (personagemEscolhido) {
+                input.value = personagemEscolhido.nome; 
+                list.style.display = "none"; 
+                funcaoPalpite(); 
+            }
+        }
+    });
+}
+
+// Ativando os autocompletes para as duas abas
+configurarAutocomplete("guessInput", "custom-autocomplete", personagensDb, palpitesFeitos, fazerPalpite, "fotos");
+configurarAutocomplete("guessHpInput", "auto-hp", hpDb, palpitesFeitosHp, fazerPalpiteHp, "fotos_hp");
+
+// Fechar lista se clicar fora
+document.addEventListener("mousedown", function(e) {
+    const list1 = document.getElementById("custom-autocomplete");
+    const in1 = document.getElementById("guessInput");
+    if (e.target !== in1 && !list1.contains(e.target)) list1.style.display = "none";
+
+    const list2 = document.getElementById("auto-hp");
+    const in2 = document.getElementById("guessHpInput");
+    if (e.target !== in2 && !list2.contains(e.target)) list2.style.display = "none";
 });
 
-// Esconde o autocomplete se clicar fora
-document.addEventListener("click", function(e) {
-    if (e.target !== input && e.target !== autocompleteList) {
-        autocompleteList.style.display = "none";
-    }
-});
 
-
-// 3. LÓGICA DE ADIVINHAÇÃO 
+// ==========================================
+// 4. LÓGICA DE PALPITE - DISNEY
+// ==========================================
 function fazerPalpite() {
-    const nomePalpite = input.value;
+    const inputDisney = document.getElementById("guessInput");
+    const nomePalpite = inputDisney.value;
     
     if (palpitesFeitos.includes(nomePalpite)) {
-        input.value = "";
-        return; 
+        inputDisney.value = ""; return; 
     }
 
     const palpiteObj = personagensDb.find(p => p.nome === nomePalpite);
-    
-    if (!palpiteObj) {
-        alert("Personagem não encontrado na lista!");
-        return;
-    }
+    if (!palpiteObj) return;
 
     palpitesFeitos.push(palpiteObj.nome);
-
+    const tabelaBody = document.getElementById("guessesBody");
     const tr = document.createElement("tr");
     tr.className = "new-row"; 
 
-    // ID
+    const ext = palpiteObj.ext || "png";
     const imgTd = document.createElement("td");
-    imgTd.innerHTML = `<img src="fotos/${palpiteObj.id}.png" class="killer-img">`;
+    imgTd.innerHTML = `<img src="fotos/${palpiteObj.id}.${ext}" class="killer-img">`;
     tr.appendChild(imgTd);
 
     tr.appendChild(criarCelula(palpiteObj.nome, palpiteObj.nome === personagemDoDia.nome));
@@ -242,20 +356,13 @@ function fazerPalpite() {
     tr.appendChild(criarCelula(palpiteObj.estudio, palpiteObj.estudio === personagemDoDia.estudio));
     tr.appendChild(criarCelula(palpiteObj.cabelo, palpiteObj.cabelo === personagemDoDia.cabelo));
     
-    // Lógica da Seta para o Ano
     const cellAno = document.createElement("td");
     if (palpiteObj.lancamento === personagemDoDia.lancamento) {
-        cellAno.className = "match";
-        cellAno.innerText = palpiteObj.lancamento;
+        cellAno.className = "match"; cellAno.innerText = palpiteObj.lancamento;
     } else {
         cellAno.className = "arrow-cell";
         const isOlder = palpiteObj.lancamento < personagemDoDia.lancamento; 
-        cellAno.innerHTML = `
-            <div class="graphic-arrow-container">
-                <div class="graphic-arrow ${isOlder ? 'arrow-up' : 'arrow-down'}"></div>
-                <span class="arrow-year">${palpiteObj.lancamento}</span>
-            </div>
-        `;
+        cellAno.innerHTML = `<div class="graphic-arrow-container"><div class="graphic-arrow ${isOlder ? 'arrow-up' : 'arrow-down'}"></div><span class="arrow-year">${palpiteObj.lancamento}</span></div>`;
     }
     tr.appendChild(cellAno);
 
@@ -264,15 +371,78 @@ function fazerPalpite() {
     tr.appendChild(criarCelula(palpiteObj.local, palpiteObj.local === personagemDoDia.local));
 
     tabelaBody.insertBefore(tr, tabelaBody.firstChild);
-
-    input.value = "";
+    inputDisney.value = "";
 
     if (palpiteObj.nome === personagemDoDia.nome) {
-        winMessage.style.display = "flex";
-        winName.innerText = palpiteObj.nome;
+        document.getElementById("message").style.display = "flex";
+        document.getElementById("winName").innerText = palpiteObj.nome;
+        document.getElementById("winImage").src = `fotos/${palpiteObj.id}.${ext}`;
         tocarAudiosVitoria();
-        input.disabled = true; 
+        inputDisney.disabled = true; 
     }
+}
+
+// ==========================================
+// 5. LÓGICA DE PALPITE - HARRY POTTER
+// ==========================================
+function fazerPalpiteHp() {
+    const inputHp = document.getElementById("guessHpInput");
+    const nomePalpite = inputHp.value;
+    
+    if (palpitesFeitosHp.includes(nomePalpite)) {
+        inputHp.value = ""; return; 
+    }
+
+    const palpiteObj = hpDb.find(p => p.nome === nomePalpite);
+    if (!palpiteObj) return;
+
+    palpitesFeitosHp.push(palpiteObj.nome);
+    const tbodyHp = document.getElementById("guessesBodyHp");
+    const tr = document.createElement("tr");
+    tr.className = "new-row"; 
+
+    const ext = palpiteObj.ext || "png";
+    const imgTd = document.createElement("td");
+    imgTd.innerHTML = `<img src="fotos_hp/${palpiteObj.id}.${ext}" class="killer-img">`;
+    tr.appendChild(imgTd);
+
+    tr.appendChild(criarCelula(palpiteObj.nome, palpiteObj.nome === hpDoDia.nome));
+    tr.appendChild(criarCelula(palpiteObj.genero, palpiteObj.genero === hpDoDia.genero));
+    tr.appendChild(criarCelula(palpiteObj.casa, palpiteObj.casa === hpDoDia.casa));
+    tr.appendChild(criarCelula(palpiteObj.sangue, palpiteObj.sangue === hpDoDia.sangue));
+    tr.appendChild(criarCelula(palpiteObj.especie, palpiteObj.especie === hpDoDia.especie));
+    tr.appendChild(criarCelula(palpiteObj.cabelo, palpiteObj.cabelo === hpDoDia.cabelo));
+    
+    const cellAno = document.createElement("td");
+    if (palpiteObj.ano === hpDoDia.ano) {
+        cellAno.className = "match"; cellAno.innerText = palpiteObj.ano;
+    } else {
+        cellAno.className = "arrow-cell";
+        const isOlder = palpiteObj.ano < hpDoDia.ano; 
+        cellAno.innerHTML = `<div class="graphic-arrow-container"><div class="graphic-arrow ${isOlder ? 'arrow-up' : 'arrow-down'}"></div><span class="arrow-year">${palpiteObj.ano}</span></div>`;
+    }
+    tr.appendChild(cellAno);
+
+    tbodyHp.insertBefore(tr, tbodyHp.firstChild);
+    inputHp.value = "";
+
+    if (palpiteObj.nome === hpDoDia.nome) {
+        document.getElementById("message-hp").style.display = "flex";
+        document.getElementById("winNameHp").innerText = palpiteObj.nome;
+        document.getElementById("winImageHp").src = `fotos_hp/${palpiteObj.id}.${ext}`;
+        tocarAudiosVitoria();
+        inputHp.disabled = true; 
+    }
+}
+
+// ==========================================
+// 6. FUNÇÕES AUXILIARES (Design, Áudio e Abas)
+// ==========================================
+function criarCelula(texto, isMatch) {
+    const td = document.createElement("td");
+    td.innerText = texto;
+    td.className = isMatch ? "match" : "no-match";
+    return td;
 }
 
 function tocarAudiosVitoria() {
@@ -281,10 +451,7 @@ function tocarAudiosVitoria() {
     const a3 = document.getElementById('winAudio3');
 
     if(a1) { a1.currentTime = 0; a1.play(); }
-    if(a2) { 
-        a2.volume = 0.2; 
-        a2.currentTime = 0; a2.play(); 
-    }
+    if(a2) { a2.volume = 0.2; a2.currentTime = 0; a2.play(); }
     if(a3) { a3.volume = 0.3; a3.currentTime = 0; a3.play(); }
 }
 
@@ -293,15 +460,6 @@ function tocarEasterEgg() {
     if(audio) { audio.currentTime = 0; audio.play(); }
 }
 
-// Função auxiliar para criar as células coloridas
-function criarCelula(texto, isMatch) {
-    const td = document.createElement("td");
-    td.innerText = texto;
-    td.className = isMatch ? "match" : "no-match";
-    return td;
-}
-
-// Trocar Modos (Abas)
 function trocarModo(idModo, btnElement) {
     document.querySelectorAll('.mode-section').forEach(sec => sec.classList.remove('active'));
     document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
