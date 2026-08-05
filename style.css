@@ -391,3 +391,57 @@ footer a {
 footer a:hover { 
     color: var(--primary-hover); 
 }
+
+/* ==========================================
+   📱 RESPONSIVIDADE (CELULARES E TELAS MENORES)
+   ========================================== */
+@media (max-width: 768px) {
+    /* Diminui o título principal para não quebrar a tela */
+    h1 { 
+        font-size: 2.8rem; 
+    }
+    
+    /* Coloca a barra de pesquisa e o botão de adivinhar um embaixo do outro */
+    .game-controls { 
+        flex-direction: column; 
+        gap: 12px;
+    }
+
+    /* Os quadrados da tabela ficam um pouquinho menores para aparecerem mais na tela, 
+       mas o jogador ainda pode deslizar para o lado para ver o resto */
+    table { 
+        border-spacing: 6px; 
+    }
+    
+    td {
+        width: 75px;  
+        height: 75px; 
+        font-size: 11px;
+        padding: 4px;
+    }
+    
+    /* Ajusta o tamanho da foto na primeira coluna da tabela também */
+    td:first-child, .killer-img {
+        width: 75px;
+        height: 75px;
+        min-width: 75px;
+        max-width: 75px;
+    }
+
+    /* Ajusta os tamanhos da tela de vitória para não ficarem gigantes */
+    .win-title { 
+        font-size: 22px; 
+    }
+    
+    .win-image { 
+        width: 140px; 
+        height: 140px; 
+    }
+    
+    /* Diminui a fonte do rodapé para o texto não ficar imprensado */
+    footer {
+        font-size: 12px;
+        padding: 10px;
+        text-align: center;
+    }
+}
