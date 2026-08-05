@@ -131,6 +131,7 @@ const personagensDb = [
   { id: "celia", nome: "Celia", filme: "Descendentes", estudio: "Disney", genero: "Feminino", cabelo: "Preto", lancamento: 2019, magia: "Sim", temPar: "Não", local: "Ilha dos Perdidos" }
 ];
 
+
 const hpDb = [
 // ==========================================
   // 🦁 GRIFINÓRIA
