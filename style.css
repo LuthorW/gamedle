@@ -286,10 +286,20 @@ td:first-child {
 .win-title {
     font-size: 28px;
     font-weight: 800;
-    color: var(--primary-color);
+    color: #4caf50;
     text-align: center;
-    text-shadow: 0 2px 10px rgba(209, 71, 163, 0.2);
+    text-shadow: 0 2px 10px rgba(76, 175, 80, 0.4);
     margin: 0;
+}
+
+.win-image {
+    width: 140px; /* Define um tamanho fixo e menor */
+    height: 140px; /* Mantém a imagem quadrada */
+    object-fit: cover; /* Evita que a imagem fique achatada */
+    border-radius: 12px; /* Arredonda as bordas */
+    border: 3px solid var(--correct); /* Adiciona a borda verde de acerto */
+    box-shadow: 0 0 15px rgba(46, 125, 50, 0.5); /* Adiciona um brilho verde ao redor */
+    margin: 10px 0; /* Dá um respiro entre a imagem e os textos */
 }
 
 .win-name {
