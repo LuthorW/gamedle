@@ -1,7 +1,5 @@
 const personagensDb = [
-  // ============================
   // 👑 DISNEY 
-  // ============================
   { id: "branca-de-neve", nome: "Branca de Neve", filme: "Branca de Neve", estudio: "Disney", genero: "Feminino", cabelo: "Preto", lancamento: 1937, magia: "Não", temPar: "Sim", local: "Alemanha" },
   { id: "rainha-ma", nome: "Rainha Má", filme: "Branca de Neve", estudio: "Disney", genero: "Feminino", cabelo: "Preto", lancamento: 1937, magia: "Sim", temPar: "Não", local: "Alemanha" },
   { id: "pinoquio", nome: "Pinóquio", filme: "Pinóquio", estudio: "Disney", genero: "Masculino", cabelo: "Preto", lancamento: 1940, magia: "Sim", temPar: "Não", local: "Itália" },
@@ -69,9 +67,7 @@ const personagensDb = [
   { id: "bruno", nome: "Bruno", filme: "Encanto", estudio: "Disney", genero: "Masculino", cabelo: "Preto", lancamento: 2021, magia: "Sim", temPar: "Não", local: "Colômbia" },
 
 
-  // ==========================================
   // 🚀 PIXAR
-  // ==========================================
   { id: "woody", nome: "Woody", filme: "Toy Story", estudio: "Pixar", genero: "Masculino", cabelo: "Castanho", lancamento: 1995, magia: "Não", temPar: "Sim", local: "EUA" },
   { id: "buzz-lightyear", nome: "Buzz Lightyear", filme: "Toy Story", estudio: "Pixar", genero: "Masculino", cabelo: "Nenhum", lancamento: 1995, magia: "Não", temPar: "Sim", local: "EUA" },
   { id: "jessie", nome: "Jessie", filme: "Toy Story 2", estudio: "Pixar", genero: "Feminino", cabelo: "Ruivo", lancamento: 1999, magia: "Não", temPar: "Sim", local: "EUA" },
@@ -110,18 +106,16 @@ const personagensDb = [
   { id: "wade", nome: "Wade", filme: "Elementos", estudio: "Pixar", genero: "Masculino", cabelo: "Azul", lancamento: 2023, magia: "Sim", temPar: "Sim", local: "Cidade Elementos" },
   { id: "faisca", nome: "Faísca", filme: "Elementos", estudio: "Pixar", genero: "Feminino", cabelo: "Vermelho", lancamento: 2023, magia: "Sim", temPar: "Sim", local: "Cidade Elementos" },
 
-  // ==========================================
+
   // 💛 ILLUMINATION
-  // ==========================================
   { id: "gru", nome: "Gru", filme: "Meu Malvado Favorito", estudio: "Illumination", genero: "Masculino", cabelo: "Nenhum", lancamento: 2010, magia: "Não", temPar: "Sim", local: "EUA" },
   { id: "minion-kevin", nome: "Minion Kevin", filme: "Meu Malvado Favorito", estudio: "Illumination", genero: "Masculino", cabelo: "Preto", lancamento: 2010, magia: "Não", temPar: "Não", local: "EUA" },
   { id: "vector", nome: "Vector", filme: "Meu Malvado Favorito", estudio: "Illumination", genero: "Masculino", cabelo: "Castanho", lancamento: 2010, magia: "Não", temPar: "Não", local: "EUA" },
   { id: "lucy-wilde", nome: "Lucy Wilde", filme: "Meu Malvado Favorito 2", estudio: "Illumination", genero: "Feminino", cabelo: "Ruivo", lancamento: 2013, magia: "Não", temPar: "Sim", local: "EUA" },
   { id: "agnes", nome: "Agnes", filme: "Meu Malvado Favorito", estudio: "Illumination", genero: "Feminino", cabelo: "Preto", lancamento: 2010, magia: "Não", temPar: "Não", local: "EUA" },
 
-  // ==========================================
+
   // 🌙 DREAMWORKS
-  // ==========================================
   { id: "miguel-eldorado", nome: "Miguel (El Dorado)", filme: "O Caminho para El Dorado", estudio: "Dreamworks", genero: "Masculino", cabelo: "Loiro", lancamento: 2000, magia: "Não", temPar: "Não", local: "El Dorado" },
   { id: "tulio", nome: "Tulio", filme: "O Caminho para El Dorado", estudio: "Dreamworks", genero: "Masculino", cabelo: "Preto", lancamento: 2000, magia: "Não", temPar: "Sim", local: "El Dorado" },
   { id: "shrek", nome: "Shrek", filme: "Shrek", estudio: "Dreamworks", genero: "Masculino", cabelo: "Verde", lancamento: 2001, magia: "Não", temPar: "Sim", local: "Tão Tão Distante" },
@@ -146,9 +140,8 @@ const personagensDb = [
   { id: "jack-frost", nome: "Jack Frost", filme: "A Origem dos Guardiões", estudio: "Dreamworks", genero: "Masculino", cabelo: "Branco", lancamento: 2012, magia: "Sim", temPar: "Não", local: "Terra" },
   { id: "poppy", nome: "Poppy", filme: "Trolls", estudio: "Dreamworks", genero: "Feminino", cabelo: "Rosa", lancamento: 2016, magia: "Não", temPar: "Sim", local: "Vila Troll" },
 
-  // ==========================================
+
   // 🍎 Descendentes
-  // ==========================================
   { id: "mal", nome: "Mal", filme: "Descendentes", estudio: "Disney", genero: "Feminino", cabelo: "Roxo", lancamento: 2015, magia: "Sim", temPar: "Sim", local: "Auradon" },
   { id: "evie", nome: "Evie", filme: "Descendentes", estudio: "Disney", genero: "Feminino", cabelo: "Azul", lancamento: 2015, magia: "Sim", temPar: "Sim", local: "Auradon" },
   { id: "carlos", nome: "Carlos", filme: "Descendentes", estudio: "Disney", genero: "Masculino", cabelo: "Branco", lancamento: 2015, magia: "Não", temPar: "Sim", local: "Auradon" },
