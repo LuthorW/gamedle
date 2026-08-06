@@ -555,7 +555,7 @@ function reiniciarJogo() {
     personagemDoDia = personagensDb[Math.floor(Math.random() * personagensDb.length)];
     console.log("🔄 Novo sorteio Disney:", personagemDoDia.nome);
 
-    palpitesFeitos.length = 0;
+    palpitesFeitos.length = 0; // para o botão não bugar
 
     document.getElementById("guessesBody").innerHTML = "";
 
