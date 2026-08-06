@@ -556,7 +556,7 @@ function reiniciarJogo() {
     personagemDoDia = personagensDb[Math.floor(Math.random() * personagensDb.length)];
     console.log("🔄 Novo sorteio Disney:", personagemDoDia.nome);
 
-    palpitesFeitos = [];
+    palpitesFeitos.length = 0; // para o botão não bugar
 
     document.getElementById("guessesBody").innerHTML = "";
 
@@ -573,7 +573,7 @@ function reiniciarJogoHp() {
     hpDoDia = hpDb[Math.floor(Math.random() * hpDb.length)];
     console.log("🔄 Novo sorteio HP:", hpDoDia.nome);
 
-    palpitesFeitosHp = [];
+    palpitesFeitosHp.length = 0;
 
     document.getElementById("guessesBodyHp").innerHTML = "";
 
