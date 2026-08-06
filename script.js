@@ -56,6 +56,7 @@ const personagensDb = [
   { id: "moana", nome: "Moana", filme: "Moana", estudio: "Disney", genero: "Feminino", cabelo: "Preto", lancamento: 2016, magia: "Sim", temPar: "Não", local: "Polinésia" },
   { id: "mirabel", nome: "Mirabel", filme: "Encanto", estudio: "Disney", genero: "Feminino", cabelo: "Castanho", lancamento: 2021, magia: "Não", temPar: "Não", local: "Colômbia" },
 
+
   // ==========================================
   // 🚀 PIXAR
   // ==========================================
