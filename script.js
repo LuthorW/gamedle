@@ -549,3 +549,38 @@ function dispararConfetes() {
         }());
     }
 }
+
+// FUNÇÕES PARA JOGAR NOVAMENTE 
+function reiniciarJogo() {
+    personagemDoDia = personagensDb[Math.floor(Math.random() * personagensDb.length)];
+    console.log("🔄 Novo sorteio Disney:", personagemDoDia.nome);
+
+    palpitesFeitos = [];
+
+    document.getElementById("guessesBody").innerHTML = "";
+
+    document.getElementById("message").style.display = "none";
+    document.querySelector("#classic-mode .game-controls").style.display = "flex";
+
+    const inputDisney = document.getElementById("guessInput");
+    inputDisney.disabled = false;
+    inputDisney.value = "";
+    inputDisney.focus(); // Já coloca o cursor lá piscando pra pessoa digitar
+}
+
+function reiniciarJogoHp() {
+    hpDoDia = hpDb[Math.floor(Math.random() * hpDb.length)];
+    console.log("🔄 Novo sorteio HP:", hpDoDia.nome);
+
+    palpitesFeitosHp = [];
+
+    document.getElementById("guessesBodyHp").innerHTML = "";
+
+    document.getElementById("message-hp").style.display = "none";
+    document.querySelector("#hp-mode .game-controls").style.display = "flex";
+
+    const inputHp = document.getElementById("guessHpInput");
+    inputHp.disabled = false;
+    inputHp.value = "";
+    inputHp.focus();
+}
